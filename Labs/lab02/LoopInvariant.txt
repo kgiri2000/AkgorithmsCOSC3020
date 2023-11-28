@@ -1,0 +1,53 @@
+//Kamal Giri
+//COSC 3020
+//Lab02
+//Last Modified: 02/03/2023
+
+
+We have the code:
+
+
+function fibo(n){
+
+    arr = [0,1];
+    if(n<1){
+        return arr.slice(0,1);
+    }
+    if(n==1){
+        return arr;
+    }
+    if(n>1){
+        for(let i =1; i<= (n-1); i++){
+            arr.push(arr[arr.length -1] + arr[arr.length- 2]);
+        }
+        
+    }
+    return arr;
+
+}
+
+Now, we have to find the best loop invariant for the above recursive fibonacci function.
+Loop invariant is a condition that is necessarily true befire , after each iteration and 
+after the loop termination.
+I have come with few loop invariant condition for the above recursive loop function,
+
+1. The first loop invariant condition is that 
+	i. The first two element of the array is always [0,1].
+Lets try to verify this information:
+When, n = 0, then we will get the array, arr = [0].
+When n = 1, then we will get the array, arr = [0,1].
+Now, if we further increase the value of n, we are just adding the n-1 and n-2 element of the array, 
+where n is the length of the array and pushing the result back to the array so,
+When, n =3, we will get the array [0, 1 ,1] after loop terminates.
+
+Hence, the fist two elements of the array is always [0,1].
+
+My other speculations:
+
+2. The second loop invariant condition is that (arr[i] + arr[i+1] > 0)
+
+3. Here, the third loop invariant condition is that:
+	let, arr.length -1 = n-1
+	and, arr.length -2 = n-2
+	and, arr.length = n
+Then, In the array arr of the fibonacci series, the loop invariant condition arr[n-1] + arr[n-2] = arr[n].
